@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משיח בן יוסף - המדריך השלם</title>
+
+    <!-- Bootstrap RTL -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts - Heebo -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Navigation Script -->
+    <script src="../navigation.js"></script>
+
+    <style>
+        /* Base Styles */
+        :root {
+            --joseph-color: #4A90E2;
+            --gradient-light: rgba(255, 255, 255, 0.1);
+            --gradient-dark: rgba(0, 0, 0, 0.1);
+            --divider-color: rgba(74, 144, 226, 0.2);
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80') center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Card Styles */
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .card-header {
+            background: linear-gradient(45deg, var(--joseph-color), #2C3E50);
+            color: white;
+            border: none;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            background: var(--joseph-color);
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 50%;
+            padding-left: 2rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 50%;
+            padding-right: 2rem;
+        }
+
+        /* Table Styles */
+        .table-wrapper {
+            position: relative;
+            border-radius: 15px;
+            padding: 7px;
+            background: linear-gradient(90deg, var(--joseph-color), #2C3E50, var(--joseph-color));
+            background-size: 400% 400%;
+            animation: gradientBorder 10s ease infinite;
+            margin-bottom: 2rem;
+        }
+
+        @keyframes gradientBorder {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        /* Info Box Styles */
+        .info-box {
+            border: 2px solid var(--divider-color);
+            border-radius: 15px;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        /* Feature List Styles */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .feature-list li::before {
+            content: '🔹';
+            position: absolute;
+            right: 0;
+            color: var(--joseph-color);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                padding-left: 60px !important;
+                padding-right: 15px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="hero-title" data-aos="fade-down">
+                        <i class="fas fa-shield-alt mb-4 d-block" style="color: var(--joseph-color);"></i>
+                        משיח בן יוסף - המדריך השלם
+                    </h1>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200">
+                        "וְהָיָה בְּאַחֲרִית הַיָּמִים נָכוֹן יִהְיֶה הַר בֵּית ה' בְּרֹאשׁ הֶהָרִים"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Introduction -->
+            <div class="info-box" data-aos="fade-up">
+                <h3 class="text-center mb-4">מבוא - תפקיד משיח בן יוסף בגאולה</h3>
+                <p class="text-center">
+                    משיח בן יוסף, הגואל הצבאי והמעשי, הוא הדמות המרכזית בהכנת העולם לגאולה. תפקידו כולל הכנת העולם
+                    הגשמי,
+                    מלחמה באויבי ישראל, והכנת התשתית הפיזית והכלכלית לגאולה. המדריך שלפנינו מציג את תפקידו של משיח בן
+                    יוסף
+                    בהתאם לחמש הטבלאות המרכזיות, בסדר כרונולוגי המתאים לתהליך הגאולה.
+                </p>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="timeline">
+                <!-- Stage 1: Sefirot -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">שלב ראשון: תיקון הספירות</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>הספירה</th>
+                                                <th>תפקיד משיח בן יוסף</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>כתר</strong> 👑</td>
+                                                <td>מכין את העולם הגשמי לקבלת אור הגאולה השלמה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>חכמה</strong> 🎓</td>
+                                                <td>מתכנן אסטרטגיות צבאיות מתקדמות להגנת עם ישראל</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>בינה</strong> 🧠</td>
+                                                <td>מנתח ומבין את תהליכי הגאולה בעולם המעשה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>דעת</strong> 📚</td>
+                                                <td>מחבר בין העולם הרוחני והגשמי בדרך מעשית</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>חסד</strong> ❤️</td>
+                                                <td>דואג לכל צרכי העם בגשמיות וברוחניות</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>גבורה</strong> 💪</td>
+                                                <td>נלחם באויבי ישראל ומגן על העם בגבורה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>תפארת</strong> ✨</td>
+                                                <td>מעלה את כבוד ישראל בעיני העמים בדרכי שלום</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>נצח</strong> ⚡️</td>
+                                                <td>מוביל את צבא ישראל לניצחונות מכריעים במלחמות</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>הוד</strong> 🌟</td>
+                                                <td>מעצים את תפארת וכבוד צבא ישראל בעולם</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>יסוד</strong> 🏛️</td>
+                                                <td>מייסד את התשתית המעשית למלכות ישראל החדשה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>מלכות</strong> 👑</td>
+                                                <td>מקים את מלכות ישראל בפועל בארץ ישראל</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5>הסבר התהליך:</h5>
+                                <ul class="feature-list">
+                                    <li>תיקון הספירות מתחיל בהכנת העולם הגשמי ומסתיים בהקמת מלכות ישראל</li>
+                                    <li>כל ספירה מייצגת שלב בתהליך המעשי של הכנת העולם לגאולה</li>
+                                    <li>התהליך כולל הכנה צבאית, כלכלית ופוליטית</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 2: Dibrot -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">שלב שני: יישום עשרת הדיברות</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>הדיבר</th>
+                                                <th>תפקיד משיח בן יוסף</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>אנכי ה' אלוקיך</strong> 🌟</td>
+                                                <td>מכין את העולם להכרה מעשית באחדות הבורא</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>לא יהיה לך אלוהים אחרים</strong> 🚫</td>
+                                                <td>מבער עבודה זרה ואמונות טפלות מהעולם</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>לא תשא את שם ה' לשווא</strong> 🤐</td>
+                                                <td>מחנך לכבוד שמיים בדיבור ובמעשה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>זכור את יום השבת</strong> ✡️</td>
+                                                <td>מיישם שמירת שבת בצבא ובמערכות המדינה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>כבד את אביך ואת אמך</strong> 👨‍👩‍👦</td>
+                                                <td>מחזק את כבוד ההורים והמסורת בעם ישראל</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>לא תרצח</strong> 🛡️</td>
+                                                <td>מגן על חיי אדם תוך שמירה על טוהר הנשק</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>לא תנאף</strong> 💑</td>
+                                                <td>מחזק את קדושת המשפחה בעם ישראל</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>לא תגנוב</strong> 🚫</td>
+                                                <td>מיישם יושר וצדק בכלכלת המדינה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>לא תענה ברעך עד שקר</strong> 🗣️</td>
+                                                <td>מקדם אמת וצדק במערכת המשפט הצבאית</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>לא תחמוד</strong> 🤝</td>
+                                                <td>מחנך להסתפקות במועט ושמחה בחלקו</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5>הסבר התהליך:</h5>
+                                <ul class="feature-list">
+                                    <li>יישום עשרת הדיברות מתחיל בהכנת העולם ומסתיים בהקמת המלכות</li>
+                                    <li>כל דיבר מייצג עיקרון מעשי שצריך להיות מיושם בעולם</li>
+                                    <li>התהליך כולל הכנה מעשית של העולם לגאולה</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 3: Mesilat Yesharim -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">שלב שלישי: תיקון המידות</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>המידה</th>
+                                                <th>תפקיד משיח בן יוסף</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>זהירות</strong> 👀</td>
+                                                <td>מקפיד על בטחון מירבי בכל פעולות הצבא</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>זריזות</strong> ⚡️</td>
+                                                <td>פועל במהירות ויעילות בכל משימה צבאית</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>נקיות</strong> ✨</td>
+                                                <td>שומר על טוהר המידות והנשק בצבא</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>פרישות</strong> 🧘‍♂️</td>
+                                                <td>מתמקד במשימה תוך ויתור על נוחות אישית</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>טהרה</strong> 💫</td>
+                                                <td>מקדש את המחנה הצבאי בטהרה ובקדושה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>חסידות</strong> 🙏</td>
+                                                <td>פועל לפנים משורת הדין למען כלל ישראל</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>ענווה</strong> 🌱</td>
+                                                <td>מנהיג בצניעות תוך שירות אמיתי לעם</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>יראת חטא</strong> 📜</td>
+                                                <td>מקפיד על חוקי המלחמה על פי התורה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>קדושה</strong> 🕊️</td>
+                                                <td>מעלה את קדושת צבא ישראל לדרגה גבוהה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>רוח הקודש</strong> ✡️</td>
+                                                <td>משרה רוח גבורה וקדושה על הלוחמים</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5>הסבר התהליך:</h5>
+                                <ul class="feature-list">
+                                    <li>תיקון המידות מתחיל בשמירה על ביטחון ומסתיים בהשראת רוח גבורה</li>
+                                    <li>כל מידה מייצגת תכונה נדרשת למנהיג צבאי</li>
+                                    <li>התהליך כולל תיקון מידות צבאיות ומוסריות</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 4: Worlds -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">שלב רביעי: תיקון העולמות</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>העולם</th>
+                                                <th>תפקיד משיח בן יוסף</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>אצילות</strong> 🌠</td>
+                                                <td>מכין את העולם הרוחני לקראת הגאולה השלמה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>בריאה</strong> 🏗️</td>
+                                                <td>בונה מערך צבאי חדש על פי התורה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>יצירה</strong> 🛡️</td>
+                                                <td>יוצר מערכות הגנה מתקדמות לעם ישראל</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>עשייה</strong> 🔨</td>
+                                                <td>מיישם את כל ההכנות הגשמיות לגאולה</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5>הסבר התהליך:</h5>
+                                <ul class="feature-list">
+                                    <li>תיקון העולמות מתחיל בהכנה רוחנית ומסתיים בהכנה גשמית</li>
+                                    <li>כל עולם מייצג רמה שונה של הכנה צבאית</li>
+                                    <li>התהליך כולל הכנה מלאה של כל הרבדים</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 5: Maamarot -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">שלב חמישי: תיקון המאמרות</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>המאמר</th>
+                                                <th>תפקיד משיח בן יוסף</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>בְּרֵאשִׁית</strong> 🌅</td>
+                                                <td>מתחיל את תהליך ההכנה הצבאית לגאולה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>יְהִי אוֹר</strong> 💡</td>
+                                                <td>מאיר את דרך המלחמה בחכמה ובתבונה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>יְהִי רָקִיעַ</strong> 🌈</td>
+                                                <td>מבדיל בין כוחות הטוב והרע במלחמה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>יִקָּווּ הַמַּיִם</strong> 🌊</td>
+                                                <td>מאחד את כל כוחות הצבא למטרה אחת</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>תַּדְשֵׁא הָאָרֶץ</strong> 🌱</td>
+                                                <td>מצמיח את הכלכלה לתמיכה במאמץ המלחמתי</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>יְהִי מְאֹרֹת</strong> 🌟</td>
+                                                <td>מאיר את דרך הצבא בהנהגה נכונה</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>יִשְׁרְצוּ הַמַּיִם</strong> 👥</td>
+                                                <td>מגייס ומכשיר חיילים רבים לצבא ישראל</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>תּוֹצֵא הָאָרֶץ</strong> 🚀</td>
+                                                <td>מוציא את כוחות הצבא למשימות מבצעיות</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>נַעֲשֶׂה אָדָם</strong> 💂‍♂️</td>
+                                                <td>מכשיר את הלוחמים להיות חיילי ה'</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>הִנֵּה נָתַתִּי</strong> ⚔️</td>
+                                                <td>מעניק כוח וסמכות לצבא ישראל המתחדש</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5>הסבר התהליך:</h5>
+                                <ul class="feature-list">
+                                    <li>תיקון המאמרות מתחיל בהכנת העולם ומסתיים בהקמת הצבא</li>
+                                    <li>כל מאמר מייצג שלב בהכנת העולם הצבאי</li>
+                                    <li>התהליך כולל הכנה מלאה של כל הכוחות</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="info-box mt-5" data-aos="fade-up">
+                <h3 class="text-center mb-4">סיכום - תפקיד משיח בן יוסף בגאולה</h3>
+                <p class="text-center">
+                    תפקיד משיח בן יוסף בגאולה מתחיל בתיקון הספירות - הכנת העולם הגשמי, ממשיך ביישום עשרת הדיברות -
+                    היסודות המעשיים של המלחמה,
+                    עובר לתיקון המידות - התכונות הנדרשות למנהיג צבאי, ממשיך בתיקון העולמות - כל רבדי ההכנה הצבאית,
+                    ומסתיים בתיקון המאמרות - כוחות המלחמה. כל שלב בונה על השלב הקודם ומשלים אותו,
+                    עד להשלמת תפקידו של משיח בן יוסף בהכנת העולם לגאולה.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+
+</html>

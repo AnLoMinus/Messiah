@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משה רבנו - המדריך השלם</title>
+
+    <!-- Bootstrap RTL -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts - Heebo -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Navigation Script -->
+    <script src="../navigation.js"></script>
+
+
+    <style>
+        /* Base Styles */
+        :root {
+            --moses-color: #FFD700;
+            --gradient-light: rgba(255, 255, 255, 0.1);
+            --gradient-dark: rgba(0, 0, 0, 0.1);
+            --divider-color: rgba(255, 215, 0, 0.2);
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80') center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Card Styles */
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .card-header {
+            background: linear-gradient(45deg, var(--moses-color), #FFA500);
+            color: white;
+            border: none;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            background: var(--moses-color);
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 50%;
+            padding-left: 2rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 50%;
+            padding-right: 2rem;
+        }
+
+        /* Table Styles */
+        .table-wrapper {
+            position: relative;
+            border-radius: 15px;
+            padding: 7px;
+            background: linear-gradient(90deg, var(--moses-color), #FFA500, var(--moses-color));
+            background-size: 400% 400%;
+            animation: gradientBorder 10s ease infinite;
+            margin-bottom: 2rem;
+        }
+
+        @keyframes gradientBorder {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        /* Info Box Styles */
+        .info-box {
+            border: 2px solid var(--divider-color);
+            border-radius: 15px;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        /* Feature List Styles */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .feature-list li::before {
+            content: '🔹';
+            position: absolute;
+            right: 0;
+            color: var(--moses-color);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                padding-left: 60px !important;
+                padding-right: 15px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="hero-title" data-aos="fade-down">
+                        <i class="fas fa-crown mb-4 d-block" style="color: var(--moses-color);"></i>
+                        משה רבנו - המדריך השלם
+                    </h1>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="200">
+                        "כִּי מִצִּיּוֹן תֵּצֵא תוֹרָה וּדְבַר ה' מִירוּשָׁלִָם"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Introduction -->
+            <div class="info-box" data-aos="fade-up">
+                <h3 class="text-center mb-4">מבוא - תפקיד משה רבנו בגאולה</h3>
+                <p class="text-center">
+                    משה רבנו, הגואל הראשון והאחרון, הוא הדמות המרכזית בתהליך הגאולה. תפקידו כולל החזרת התורה לעם ישראל,
+                    גילוי סודות התורה העמוקים, והכנת העם לקבלת מלכות ה' השלמה. המדריך שלפנינו מציג את תפקידו של משה רבנו
+                    בהתאם לחמש הטבלאות המרכזיות, בסדר כרונולוגי המתאים לתהליך הגאולה.
+                </p>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="timeline">
+                <!-- Stage 1: Sefirot -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">שלב ראשון: תיקון הספירות</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>הספירה</th>
+                                                <th>תפקיד משה רבנו</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>👑 <strong>כתר</strong></td>
+                                                <td>גילוי והשראת אור אין סוף בעולמות התחתונים</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🎓 <strong>חכמה</strong></td>
+                                                <td>העברת חכמת התורה העליונה לכלים של מטה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🧠 <strong>בינה</strong></td>
+                                                <td>פיתוח יכולת הבנה עמוקה בסודות הגאולה השלמה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>📚 <strong>דעת</strong></td>
+                                                <td>חיבור והתקשרות בין העולמות העליונים והתחתונים בתורה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>❤️ <strong>חסד</strong></td>
+                                                <td>הפצת אהבת ישראל אמיתית בכל שכבות העם</td>
+                                            </tr>
+                                            <tr>
+                                                <td>💪 <strong>גבורה</strong></td>
+                                                <td>חיזוק כוח התורה להתגבר על כוחות הטומאה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>✨ <strong>תפארת</strong></td>
+                                                <td>הארת יופי וקדושת התורה בכל העולמות כולם</td>
+                                            </tr>
+                                            <tr>
+                                                <td>⚡️ <strong>נצח</strong></td>
+                                                <td>הטמעת נצחיות התורה בכל דור ודור לעד</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🌟 <strong>הוד</strong></td>
+                                                <td>גילוי הדר וזיו התורה בעולם הזה התחתון</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🏛️ <strong>יסוד</strong></td>
+                                                <td>ביסוס והעמדת התורה כיסוד קיום העולם כולו</td>
+                                            </tr>
+                                            <tr>
+                                                <td>👑 <strong>מלכות</strong></td>
+                                                <td>המלכת הקדוש ברוך הוא על כל הבריאה</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5>הסבר התהליך:</h5>
+                                <ul class="feature-list">
+                                    <li>תיקון הספירות מתחיל בגילוי האלוקות (כתר) ומסתיים בהורדת השכינה לעולם (מלכות)
+                                    </li>
+                                    <li>כל ספירה מייצגת שלב בתהליך הרוחני של החזרת התורה לעם ישראל</li>
+                                    <li>התהליך כולל תיקון מידות, הנהגה, והכנה לקבלת מלכות ה'</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 2: Dibrot -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">שלב שני: יישום עשרת הדיברות</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>הדיבר</th>
+                                                <th>תפקיד משה רבנו</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>✡️ <strong>אנכי ה' אלוקיך</strong></td>
+                                                <td>הטמעת אמונת ה' בלב כל יהודי ויהודי</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🚫 <strong>לא יהיה לך אלוהים אחרים</strong></td>
+                                                <td>עקירת כל סוגי עבודה זרה מהלב והמחשבה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🤫 <strong>לא תשא את שם ה' לשווא</strong></td>
+                                                <td>שמירת קדושת השם בכל מחשבה דיבור ומעשה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🕯️ <strong>זכור את יום השבת</strong></td>
+                                                <td>הארת קדושת השבת בששת ימי המעשה כולם</td>
+                                            </tr>
+                                            <tr>
+                                                <td>👨‍👩‍👦 <strong>כבד את אביך ואת אמך</strong></td>
+                                                <td>חיזוק מסורת אבות והעברת התורה מדור לדור</td>
+                                            </tr>
+                                            <tr>
+                                                <td>❌ <strong>לא תרצח</strong></td>
+                                                <td>שמירת קדושת החיים והרחקת כל סוג אלימות</td>
+                                            </tr>
+                                            <tr>
+                                                <td>💔 <strong>לא תנאף</strong></td>
+                                                <td>שמירת קדושת המשפחה וטהרת המחשבה והמעשה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🚫 <strong>לא תגנוב</strong></td>
+                                                <td>פיתוח יושר והגינות בכל מערכות החיים והממון</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🤐 <strong>לא תענה ברעך עד שקר</strong></td>
+                                                <td>דבקות באמת והרחקת כל סוג של שקר</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🙅‍♂️ <strong>לא תחמוד</strong></td>
+                                                <td>פיתוח הסתפקות במועט ושמחה בחלקו תמיד</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5>הסבר התהליך:</h5>
+                                <ul class="feature-list">
+                                    <li>יישום עשרת הדיברות מתחיל בהכרת ה' ומסתיים בתיקון המידות</li>
+                                    <li>כל דיבר מייצג עיקרון יסודי בתורה שצריך להיות מיושם בעולם</li>
+                                    <li>התהליך כולל תיקון מעשי של העולם בהתאם לתורה</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 3: Mesilat Yesharim -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">שלב שלישי: תיקון המידות</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>המידה</th>
+                                                <th>תפקיד משה רבנו</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>👀 <strong>זהירות</strong></td>
+                                                <td>פיתוח זהירות מתמדת בשמירת כל דקדוקי התורה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>⚡️ <strong>זריזות</strong></td>
+                                                <td>זירוז והתלהבות בקיום כל מצוות התורה תמיד</td>
+                                            </tr>
+                                            <tr>
+                                                <td>✨ <strong>נקיות</strong></td>
+                                                <td>טיהור המחשבות והמעשים מכל סיג ופגם רוחני</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🚶‍♂️ <strong>פרישות</strong></td>
+                                                <td>התעלות מעל תאוות העולם לדבקות בקדושה עליונה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>💫 <strong>טהרה</strong></td>
+                                                <td>זיכוך הנפש והגוף לקבלת אור התורה הקדוש</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🕊️ <strong>חסידות</strong></td>
+                                                <td>התמסרות מוחלטת לעבודת ה' מתוך אהבה טהורה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🙏 <strong>ענווה</strong></td>
+                                                <td>ביטול מוחלט של האגו בפני רצון הבורא</td>
+                                            </tr>
+                                            <tr>
+                                                <td>😇 <strong>יראת חטא</strong></td>
+                                                <td>פיתוח רגישות עמוקה לשמירת כל גדרי הקדושה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>👼 <strong>קדושה</strong></td>
+                                                <td>התעלות לדרגת קדושה עליונה בכל מעשה ומחשבה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🕊️ <strong>רוח הקודש</strong></td>
+                                                <td>זכייה להשראת השכינה וגילוי סודות התורה העמוקים</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5>הסבר התהליך:</h5>
+                                <ul class="feature-list">
+                                    <li>תיקון המידות מתחיל בזהירות ומסתיים בהשראת רוח הקודש</li>
+                                    <li>כל מידה מייצגת שלב בהתעלות הרוחנית של האדם</li>
+                                    <li>התהליך כולל תיקון אישי וכללי של המידות</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 4: Worlds -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">שלב רביעי: תיקון העולמות</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>העולם</th>
+                                                <th>תפקיד משה רבנו</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>👑 <strong>אצילות</strong></td>
+                                                <td>חיבור עולם האצילות העליון עם העולמות התחתונים</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🌎 <strong>בריאה</strong></td>
+                                                <td>יצירת כלים רוחניים חדשים להשראת אור התורה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>✨ <strong>יצירה</strong></td>
+                                                <td>בניית מערכות קדושה להמשכת השפע האלוקי למטה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🛠️ <strong>עשייה</strong></td>
+                                                <td>הטמעת אור התורה בכל פרטי העולם הגשמי</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5>הסבר התהליך:</h5>
+                                <ul class="feature-list">
+                                    <li>תיקון העולמות מתחיל בעולם האצילות ומסתיים בעולם העשייה</li>
+                                    <li>כל עולם מייצג רמה שונה של קיום שצריכה תיקון</li>
+                                    <li>התהליך כולל תיקון מלא של כל הרבדים של המציאות</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stage 5: Maamarot -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">שלב חמישי: תיקון המאמרות</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-wrapper">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr>
+                                                <th>המאמר</th>
+                                                <th>תפקיד משה רבנו</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>🌅 <strong>בְּרֵאשִׁית</strong></td>
+                                                <td>גילוי סודות הבריאה העמוקים בתורה הקדושה</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🌟 <strong>יְהִי אוֹר</strong></td>
+                                                <td>הארת אור התורה בכל חלקי העולם החשוכים</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🌌 <strong>יְהִי רָקִיעַ</strong></td>
+                                                <td>יצירת הבדלה ברורה בין קודש לחול בעולם</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🌊 <strong>יִקָּווּ הַמַּיִם</strong></td>
+                                                <td>איחוד כל חלקי עם ישראל לעבודת ה'</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🌱 <strong>תַּדְשֵׁא הָאָרֶץ</strong></td>
+                                                <td>הצמחת כוחות הקדושה בעולם החומר התחתון</td>
+                                            </tr>
+                                            <tr>
+                                                <td>⭐️ <strong>יְהִי מְאֹרֹת</strong></td>
+                                                <td>הפצת אור התורה לכל אומות העולם כולן</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🐠 <strong>יִשְׁרְצוּ הַמַּיִם</strong></td>
+                                                <td>הרבות תלמידי חכמים המפיצים תורה בעולם</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🦁 <strong>תּוֹצֵא הָאָרֶץ</strong></td>
+                                                <td>גילוי כוחות הקדושה הטמונים בעולם החומר</td>
+                                            </tr>
+                                            <tr>
+                                                <td>👨 <strong>נַעֲשֶׂה אָדָם</strong></td>
+                                                <td>העלאת האדם לדרגת השלמות הרוחנית המיועדת לו</td>
+                                            </tr>
+                                            <tr>
+                                                <td>🎁 <strong>הִנֵּה נָתַתִּי</strong></td>
+                                                <td>השלמת מתן תורה והשראת השכינה בעולם כולו</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <h5>הסבר התהליך:</h5>
+                                <ul class="feature-list">
+                                    <li>תיקון המאמרות מתחיל בבריאת העולם ומסתיים במתן תורה</li>
+                                    <li>כל מאמר מייצג שלב בתהליך הבריאה שצריך תיקון</li>
+                                    <li>התהליך כולל תיקון מלא של כל כוחות הבריאה</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="info-box mt-5" data-aos="fade-up">
+                <h3 class="text-center mb-4">סיכום - תפקיד משה רבנו בגאולה</h3>
+                <p class="text-center">
+                    תפקיד משה רבנו בגאולה מתחיל בתיקון הספירות - המבנה הרוחני של העולם, ממשיך ביישום עשרת הדיברות -
+                    היסודות המעשיים של התורה,
+                    עובר לתיקון המידות - התכונות הנדרשות לעבודת ה', ממשיך בתיקון העולמות - כל רבדי המציאות,
+                    ומסתיים בתיקון המאמרות - כוחות הבריאה. כל שלב בונה על השלב הקודם ומשלים אותו,
+                    עד להשלמת תפקידו של משה רבנו בהבאת הגאולה השלמה.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+
+</html>
