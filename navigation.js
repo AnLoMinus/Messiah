@@ -14,6 +14,24 @@ function getAdjustedPaths() {
     joseph: isMainPage
       ? "./משיח בן יוסף - המדריך השלם/index.html"
       : "../משיח בן יוסף - המדריך השלם/index.html",
+    mosesGuide: isMainPage
+      ? "./משה רבנו - המדריך השלם/print.html"
+      : "../משה רבנו - המדריך השלם/print.html",
+    davidGuide: isMainPage
+      ? "./משיח בן דוד - המדריך השלם/print.html"
+      : "../משיח בן דוד - המדריך השלם/print.html",
+    josephGuide: isMainPage
+      ? "./משיח בן יוסף - המדריך השלם/print.html"
+      : "../משיח בן יוסף - המדריך השלם/print.html",
+    mosesSteps: isMainPage
+      ? "./משה רבנו - המדריך השלם/practical_steps.html"
+      : "../משה רבנו - המדריך השלם/practical_steps.html",
+    davidSteps: isMainPage
+      ? "./משיח בן דוד - המדריך השלם/practical_steps.html"
+      : "../משיח בן דוד - המדריך השלם/practical_steps.html",
+    josephSteps: isMainPage
+      ? "./משיח בן יוסף - המדריך השלם/practical_steps.html"
+      : "../משיח בן יוסף - המדריך השלם/practical_steps.html",
   };
 }
 
@@ -38,22 +56,63 @@ function createNavigation() {
                     <h5 class="mb-3">המדריך השלם למשיח</h5>
                     <p class="mb-0">מדריך מקיף המתאר את תפקידיהם של שלושת המשיחים בתהליך הגאולה 🕊️</p>
                 </div>
+                <div class="messiah-sections">
+                    <div class="messiah-section">
+                        <h6 class="section-title">משה רבנו</h6>
+                        <div class="section-links">
+                            <a href="${paths.moses}" class="nav-link moses-link">
+                                <i class="fas fa-book-reader"></i>
+                                דף הבית
+                            </a>
+                            <a href="${paths.mosesGuide}" class="guide-link moses-guide">
+                                <i class="fas fa-book"></i>
+                                המדריך
+                            </a>
+                            <a href="${paths.mosesSteps}" class="guide-link moses-steps">
+                                <i class="fas fa-list-check"></i>
+                                צעדים מעשיים
+                            </a>
+                        </div>
+                    </div>
+                    <div class="messiah-section">
+                        <h6 class="section-title">משיח בן דוד</h6>
+                        <div class="section-links">
+                            <a href="${paths.david}" class="nav-link david-link">
+                                <i class="fas fa-crown"></i>
+                                דף הבית
+                            </a>
+                            <a href="${paths.davidGuide}" class="guide-link david-guide">
+                                <i class="fas fa-book"></i>
+                                המדריך
+                            </a>
+                            <a href="${paths.davidSteps}" class="guide-link david-steps">
+                                <i class="fas fa-list-check"></i>
+                                צעדים מעשיים
+                            </a>
+                        </div>
+                    </div>
+                    <div class="messiah-section">
+                        <h6 class="section-title">משיח בן יוסף</h6>
+                        <div class="section-links">
+                            <a href="${paths.joseph}" class="nav-link joseph-link">
+                                <i class="fas fa-sword-alt"></i>
+                                דף הבית
+                            </a>
+                            <a href="${paths.josephGuide}" class="guide-link joseph-guide">
+                                <i class="fas fa-book"></i>
+                                המדריך
+                            </a>
+                            <a href="${paths.josephSteps}" class="guide-link joseph-steps">
+                                <i class="fas fa-list-check"></i>
+                                צעדים מעשיים
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="footer-links">
                     <a href="${paths.home}" class="nav-link home-link">
                         <i class="fas fa-home"></i>
                         דף ראשי
-                    </a>
-                    <a href="${paths.moses}" class="nav-link moses-link">
-                        <i class="fas fa-book-reader"></i>
-                        משה רבנו
-                    </a>
-                    <a href="${paths.david}" class="nav-link david-link">
-                        <i class="fas fa-crown"></i>
-                        משיח בן דוד
-                    </a>
-                    <a href="${paths.joseph}" class="nav-link joseph-link">
-                        <i class="fas fa-sword-alt"></i>
-                        משיח בן יוסף
                     </a>
                 </div>
                 <div class="footer-bottom">
@@ -108,14 +167,34 @@ function createNavigation() {
             opacity: 0.8;
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
+        .messiah-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 1rem 0;
         }
 
-        .nav-link {
+        .messiah-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .section-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .nav-link, .guide-link {
             color: white;
             text-decoration: none;
             padding: 0.5rem 1rem;
@@ -123,17 +202,18 @@ function createNavigation() {
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             font-size: 0.9rem;
             opacity: 0.9;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .nav-link i {
+        .nav-link i, .guide-link i {
             font-size: 1.1em;
         }
 
-        .nav-link:hover {
+        .nav-link:hover, .guide-link:hover {
             opacity: 1;
             transform: translateY(-2px);
         }
@@ -142,16 +222,22 @@ function createNavigation() {
             background: linear-gradient(135deg, #4169E1, #1E90FF);
         }
 
-        .moses-link:hover {
+        .moses-link, .moses-guide, .moses-steps {
             background: linear-gradient(135deg, #FFD700, #FFA500);
         }
 
-        .david-link:hover {
+        .david-link, .david-guide, .david-steps {
             background: linear-gradient(135deg, #4169E1, #1E90FF);
         }
 
-        .joseph-link:hover {
+        .joseph-link, .joseph-guide, .joseph-steps {
             background: linear-gradient(135deg, #228B22, #32CD32);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
         }
 
         .divider {
@@ -185,13 +271,12 @@ function createNavigation() {
         }
 
         @media (max-width: 768px) {
-            .footer-links {
-                flex-direction: column;
-                align-items: stretch;
+            .messiah-sections {
+                grid-template-columns: 1fr;
             }
 
-            .nav-link {
-                justify-content: center;
+            .section-links {
+                flex-direction: column;
             }
 
             .footer-info {
@@ -202,7 +287,6 @@ function createNavigation() {
         }
     `;
 
-  // הוספת האלמנטים לדף
   document.head.appendChild(style);
   document.body.appendChild(footer);
 }

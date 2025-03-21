@@ -1,0 +1,167 @@
+/* Base Styles */
+:root {
+  --moses-color: #ffd700;
+  --gradient-light: rgba(255, 255, 255, 0.1);
+  --gradient-dark: rgba(0, 0, 0, 0.1);
+  --divider-color: rgba(255, 215, 0, 0.2);
+}
+
+body {
+  font-family: "Heebo", sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 60vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80")
+      center/cover;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.card-header {
+  background: linear-gradient(45deg, var(--moses-color), #ffa500);
+  color: white;
+  border: none;
+}
+
+/* Timeline Styles */
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background: var(--moses-color);
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  padding-right: 50%;
+  padding-left: 2rem;
+}
+
+.timeline-item:nth-child(even) {
+  padding-left: 50%;
+  padding-right: 2rem;
+}
+
+/* Table Styles */
+.table-wrapper {
+  position: relative;
+  border-radius: 15px;
+  padding: 7px;
+  background: linear-gradient(
+    90deg,
+    var(--moses-color),
+    #ffa500,
+    var(--moses-color)
+  );
+  background-size: 400% 400%;
+  animation: gradientBorder 10s ease infinite;
+  margin-bottom: 2rem;
+}
+
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.table {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Info Box Styles */
+.info-box {
+  border: 2px solid var(--divider-color);
+  border-radius: 15px;
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.8)
+  );
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+/* Feature List Styles */
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.feature-list li::before {
+  content: "🔹";
+  position: absolute;
+  right: 0;
+  color: var(--moses-color);
+  font-size: 0.8rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 30px;
+  }
+
+  .timeline-item {
+    padding-left: 60px !important;
+    padding-right: 15px !important;
+  }
+}
